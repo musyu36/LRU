@@ -2,11 +2,15 @@ class LRU{
     constructor() {
         this.cache = [];
     }
-    
+    put(key, data) {
+        console.log(key);
+        this.cache.push({[key]: data });
+        console.log(this.cache);
+    }
     // constructor() {
     //     this.cache = {};
     // }
-    // put(key, data) {Object.keys(lru.cache).length
+    // put(key, data) {
     //     this.cache[key] = data;
     //     if (Object.keys(lru.cache).length >= 3) {
     //         let keys_array = Object.keys(this.cache);
