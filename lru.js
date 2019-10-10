@@ -1,11 +1,26 @@
+function moveAt(array, index, at) {
+    if (index === at || index > array.length - 1 || at > array.length - 1) {
+        return array;
+    }
+
+    const value = array[index];
+    const tail = array.slice(index + 1);
+
+    array.splice(index);
+
+    Array.prototype.push.apply(array, tail);
+
+    array.splice(at, 0, value);
+
+    return array;
+}
+
 class LRU{
     constructor() {
         this.cache = [];
     }
     put(key, data) {
-        console.log(key);
         this.cache.push({[key]: data });
-        console.log(this.cache);
 
         if (this.cache.length >= 3) {
             this.cache.shift();
@@ -13,31 +28,21 @@ class LRU{
     }
     get(x) {
         var for_return;
+        var cnt = 0;
+
         this.cache.forEach(function (value) {
-            for (var key in value){
+            for (var key in value) {
                 if (key === x) {
-                    for_return = value[key]
+                    for_return = value[key];
+                    break;
                 }
             }
+            if (for_return == null) {
+                cnt++;
+            }
         });
+        this.cache = moveAt(this.cache, cnt, this.cache.length - 1);
         return for_return;
     }
-    // constructor() {
-    //     this.cache = {};
-    // }
-    // put(key, data) {
-    //     this.cache[key] = data;
-    //     if (Object.keys(lru.cache).length >= 3) {
-    //         let keys_array = Object.keys(this.cache);
-    //         let len = keys_array.length;
-    //         // delete this.cache[keys_array[len - 1]];
-    //         // delete this.cache['a'];
-    //         delete this.cache[0];
-    //         console.log("deleted");
-    //     }
-    // }
-    // get(key) {
-    //     return this.cache[key];
-    // }
 }
 module.exports = LRU;
