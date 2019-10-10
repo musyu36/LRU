@@ -21,6 +21,16 @@ test("display the element", () => {
     expect(lru.get("b")).toBe("dataB");
 });
 
+// 使われていない要素を削除する
+test("delete the latest element", () => {
+    lru = new LRU();
+    lru.put("a", "dataA");
+    lru.put("b", "dataB");
+    lru.put("c", "dataC");
+    console.log(lru.cache);
+    expect(lru.cache.length).toBe(2);
+});
+
 
 
 // // クラスの用意

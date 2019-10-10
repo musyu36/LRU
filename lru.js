@@ -6,6 +6,10 @@ class LRU{
         console.log(key);
         this.cache.push({[key]: data });
         console.log(this.cache);
+
+        if (this.cache.length >= 3) {
+            this.cache.shift();
+        }
     }
     get(x) {
         var for_return;
