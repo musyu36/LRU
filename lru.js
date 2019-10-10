@@ -7,6 +7,17 @@ class LRU{
         this.cache.push({[key]: data });
         console.log(this.cache);
     }
+    get(x) {
+        var for_return;
+        this.cache.forEach(function (value) {
+            for (var key in value){
+                if (key === x) {
+                    for_return = value[key]
+                }
+            }
+        });
+        return for_return;
+    }
     // constructor() {
     //     this.cache = {};
     // }

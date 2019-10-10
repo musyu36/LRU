@@ -6,11 +6,19 @@ test("create new array", () => {
     expect(lru.cache.length).toBe(0);
 });
 
-// 要素を追加していく
+// // 要素を追加していく
 test("put the element", () => {
     lru = new LRU();
     lru.put("a", "dataA");
     expect(lru.cache[0]["a"]).toBe("dataA");
+});
+
+// 要素を表示する
+test("display the element", () => {
+    lru = new LRU();
+    lru.put("a", "dataA");
+    lru.put("b", "dataB");
+    expect(lru.get("b")).toBe("dataB");
 });
 
 
