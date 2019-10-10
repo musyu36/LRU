@@ -1,5 +1,13 @@
 const LRU = require("./lru");
 
+// 入れものの用意
+test("create new array", () => {
+    lru = new LRU();
+    expect(lru.cache.length).toBe(0);
+});
+
+
+
 // // クラスの用意
 // test("create new array", () => {
 //     lru = new LRU();

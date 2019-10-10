@@ -1,4 +1,7 @@
 class LRU{
+    constructor() {
+        this.cache = [];
+    }
     
     // constructor() {
     //     this.cache = {};
