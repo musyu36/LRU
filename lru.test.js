@@ -6,7 +6,7 @@ test("create new array", () => {
     expect(lru.cache.length).toBe(0);
 });
 
-// // 要素を追加していく
+// 要素を追加していく
 test("put the element", () => {
     lru = new LRU();
     lru.put("a", "dataA");
