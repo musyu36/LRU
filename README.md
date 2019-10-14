@@ -1,5 +1,7 @@
 # LRU
 
+"LRU" is a simulation of LRU Cache with JavaScript in test driven development.
+
 # DEMO
 
 # Features
@@ -9,6 +11,10 @@
 # Installation
 
 # Usage
+
+```bash
+npm run test
+```
 
 # Note
 
